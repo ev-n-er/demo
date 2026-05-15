@@ -18,8 +18,6 @@ namespace FileStorage
 
         private ValueTask<bool> HandleProcessed(string key, FileProcessedMessage? message)
         {
-            if (key != Keys.FileProcessed.ToString()) return new ValueTask<bool>(false);
-
             if (message == null)
             {
                 _logger.LogWarning("Unexpected empty message");

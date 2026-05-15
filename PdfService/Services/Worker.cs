@@ -21,8 +21,6 @@ namespace PdfService
 
         private async ValueTask<bool> HandleUpload(string key, FileUploadedMessage? message)
         {
-            if (key != Keys.FileUploaded.ToString()) return false;
-
             if (message == null)
             {
                 _logger.LogWarning("Unexpected empty message");
