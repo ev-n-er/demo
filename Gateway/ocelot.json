@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/file/pdf",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/file/pdf",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5263
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/pdf",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/pdf",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5130
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/pdf/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/pdf/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5130
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://localhost:5058"
+  }
+}

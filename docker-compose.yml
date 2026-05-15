@@ -1,0 +1,54 @@
+services:
+  gateway:
+    build:
+      context: .
+      dockerfile: Gateway/Dockerfile
+    ports:
+      - "5058:8080"
+    volumes:
+      - ./Gateway/ocelot.Docker.json:/app/ocelot.json:ro
+    depends_on:
+      - filestorage
+      - pdfservice
+
+  filestorage:
+    build:
+      context: .
+      dockerfile: FileStorage/Dockerfile
+    environment:
+      - RabbitMQ__Host=rabbitmq
+    volumes:
+      - pdf-uploads:/app/Upload
+    depends_on:
+      - rabbitmq
+
+  pdfservice:
+    build:
+      context: .
+      dockerfile: PdfService/Dockerfile
+    environment:
+      - ConnectionStrings__PgConnection=Host=postgres;Database=pdfdb;Username=postgres;Password=postgres
+      - RabbitMQ__Host=rabbitmq
+    volumes:
+      - pdf-uploads:/app/Upload
+    depends_on:
+      - rabbitmq
+      - postgres
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "15672:15672"
+
+  postgres:
+    image: postgres:16
+    environment:
+      - POSTGRES_DB=pdfdb
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pdf-uploads:
+  pgdata:

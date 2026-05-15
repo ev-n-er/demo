@@ -1,0 +1,43 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/file/pdf",
+      "UpstreamHttpMethod": [ "Post" ],
+      "DownstreamPathTemplate": "/file/pdf",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "filestorage",
+          "Port": 8080
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/pdf",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/pdf",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pdfservice",
+          "Port": 8080
+        }
+      ]
+    },
+    {
+      "UpstreamPathTemplate": "/pdf/{id}",
+      "UpstreamHttpMethod": [ "Get" ],
+      "DownstreamPathTemplate": "/pdf/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "pdfservice",
+          "Port": 8080
+        }
+      ]
+    }
+  ],
+  "GlobalConfiguration": {
+    "BaseUrl": "http://gateway:8080"
+  }
+}

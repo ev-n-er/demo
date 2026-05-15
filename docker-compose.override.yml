@@ -1,0 +1,14 @@
+services:
+  gateway:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "5058:8080"
+
+  filestorage:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+
+  pdfservice:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development

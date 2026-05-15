@@ -1,0 +1,6 @@
+@PdfService_HostAddress = http://localhost:5130
+
+GET {{PdfService_HostAddress}}/
+Accept: application/json
+
+###

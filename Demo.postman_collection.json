@@ -1,0 +1,112 @@
+{
+  "info": {
+    "_postman_id": "8e927e43-92c1-447c-86d1-ad6a7051351f",
+    "name": "Demo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "4081348"
+  },
+  "item": [
+    {
+      "name": "Upload",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/pdf",
+            "type": "text"
+          }
+        ],
+        "body": {
+          "mode": "file",
+          "file": {
+            "src": "/C:/Users/evgen/Downloads/sample.pdf"
+          }
+        },
+        "url": {
+          "raw": "{{host}}:{{port}}/file/pdf",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "file",
+            "pdf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "List",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}:{{port}}/pdf",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "pdf"
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Get text",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{host}}:{{port}}/pdf/50d50643-80a9-4865-bcb0-0708e72053aa",
+          "host": [
+            "{{host}}"
+          ],
+          "port": "{{port}}",
+          "path": [
+            "pdf",
+            "50d50643-80a9-4865-bcb0-0708e72053aa"
+          ]
+        }
+      },
+      "response": []
+    }
+  ],
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "packages": {},
+        "requests": {},
+        "exec": [
+          ""
+        ]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "host",
+      "value": ""
+    },
+    {
+      "key": "port",
+      "value": ""
+    }
+  ]
+}
